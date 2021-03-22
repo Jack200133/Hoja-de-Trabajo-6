@@ -67,7 +67,14 @@ class Main {
         String ca = scan.nextLine();
         ca = scan.nextLine();
         if(datos.containsKey(ca)){
-          collecion.put(ca, datos.get(ca));
+          if(!collecion.containsKey(ca)){
+            collecion.put(ca, 1);
+          }else{
+            int te = (int) collecion.get(ca);
+            te +=1;
+            collecion.replace(ca,collecion.get(ca),te);
+          }
+          
           System.out.print("Carta Agregada");
         }else{
           System.out.print("Carta no disponible");
@@ -87,54 +94,84 @@ class Main {
         }
       }
       else if(op ==3){
-       //mostrar cartas en coleccion
-       Object[] list = collecion.entrySet().toArray();
-       for(int i = 0; i <list.length; i++){
-          String temp = list[i].toString();
-          String[] lol =  temp.split("=");
-          System.out.println("\nNombre: " + lol[0] + ",\t Tipo: " + lol[1] + " Cantidad: ");
-       }
-      }else if(op ==4){
+       //mostrar cartas en coleccion FALTA LA CANTIDAD
         Object[] list = collecion.entrySet().toArray();
+        System.out.printf( "%-20s %20s %20s %n", "Nombre", "Tipo", "Cantidad");
+        for (int i = 0; i <list.length; i++) {
+          String temp = list[i].toString();
+          String[] lol = temp.split("=");
+          System.out.printf("%-20s %20s %20s %n", lol[0],datos.get(lol[0]), lol[1]);
+        }
+      }else if(op ==4){
+       //mostrar cartas en collecion ordenadas por tipo FALTA LA CANTIDAD
+       Object[] list = collecion.entrySet().toArray();
+        System.out.printf( "%-20s %20s %20s %n", "Nombre", "Tipo", "Cantidad");
+        for (int i = 0; i <list.length; i++) {
+          String temp = list[i].toString();
+          String[] lol = temp.split("=");
 
-       for(int i = 0; i <list.length; i++){
-          String temp = list[i].toString();
-          String[] lol =  temp.split("=");
-          if(lol[1].equals("Hechizo")){
-            System.out.println("Nombre: " + lol[0] + ",\t Tipo: " + lol[1] + " Cantidad: ");
+          if (lol[1].equals("Hechizo")) {
+               System.out.printf("%-20s %20s %20s %n", lol[0],datos.get(lol[0]), lol[1]);
           }
-       }
-       for(int i = 0; i <list.length; i++){
+        }
+        for (int i = 0; i <list.length; i++) {
           String temp = list[i].toString();
-          String[] lol =  temp.split("=");
-          if(lol[1].equals("Monstruo")){
-            System.out.println("Nombre: " + lol[0] + ",\t Tipo: " + lol[1] + " Cantidad: ");
+          String[] lol = temp.split("=");
+          if (lol[1].equals("Monstruo")) {
+              System.out.printf("%-20s %20s %20s %n", lol[0],datos.get(lol[0]), lol[1]);
           }
-       }
-       for(int i = 0; i <list.length; i++){
+        }
+        for (int i = 0; i <list.length; i++) {
           String temp = list[i].toString();
-          String[] lol =  temp.split("=");
-          if(lol[1].equals("Trampa")){
-            System.out.println("Nombre: " + lol[0] + ",\t Tipo: " + lol[1] + " Cantidad: ");
+          String[] lol = temp.split("=");
+          if (lol[1].equals("Trampa")) {
+               System.out.printf("%-20s %20s %20s %n", lol[0],datos.get(lol[0]), lol[1]);
           }
-       }
-       //mostrar cartas en collecion ordenadas por tipo
+        }
       }
       else if(op ==5){
        //mostrar cartas
+       System.out.printf( "%-20s %20s %n", "Nombre", "Tipo");
        Object[] list = datos.entrySet().toArray();
        for(int i = 0; i <list.length; i++){
           String temp = list[i].toString();
           String[] lol =  temp.split("=");
-          System.out.println("\nNombre: " + lol[0] + ",\t Tipo: " + lol[1]);
+          System.out.printf("%-20s %20s %n", lol[0], lol[1]);
        }
       }
       else if(op ==6){
-       //mostrar cartas ordenadas por tipo 
+       //mostrar cartas ordenadas por tipo
+        Object[] list = datos.entrySet().toArray();
+        System.out.printf( "%-20s %20s %n", "Nombre", "Tipo");
+        for (int i = 0; i <list.length; i++) {
+          String temp = list[i].toString();
+          String[] lol = temp.split("=");
+
+          if (lol[1].equals("Hechizo")) {
+              System.out.printf("%-20s %20s %n", lol[0], lol[1]);
+          }
+        }
+        for (int i = 0; i <list.length; i++) {
+          String temp = list[i].toString();
+          String[] lol = temp.split("=");
+          if (lol[1].equals("Monstruo")) {
+              System.out.printf("%-20s %20s %n", lol[0], lol[1]);
+          }
+        }
+        for (int i = 0; i <list.length; i++) {
+          String temp = list[i].toString();
+          String[] lol = temp.split("=");
+          if (lol[1].equals("Trampa")) {
+              System.out.printf("%-20s %20s %n", lol[0], lol[1]);
+          }
+        } 
       }else{
         System.out.print("\nOpcion no esta en el menu\n");
+        //mostrar cartas en collecion ordenadas por tipo
+       
       }
       
     }
+      
   }
 }
