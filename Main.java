@@ -110,21 +110,21 @@ class Main {
           String temp = list[i].toString();
           String[] lol = temp.split("=");
 
-          if (lol[1].equals("Hechizo")) {
+          if (datos.get(lol[0]).equals("Hechizo")) {
                System.out.printf("%-20s %20s %20s %n", lol[0],datos.get(lol[0]), lol[1]);
           }
         }
         for (int i = 0; i <list.length; i++) {
           String temp = list[i].toString();
           String[] lol = temp.split("=");
-          if (lol[1].equals("Monstruo")) {
+          if (datos.get(lol[0]).equals("Monstruo")) {
               System.out.printf("%-20s %20s %20s %n", lol[0],datos.get(lol[0]), lol[1]);
           }
         }
         for (int i = 0; i <list.length; i++) {
           String temp = list[i].toString();
           String[] lol = temp.split("=");
-          if (lol[1].equals("Trampa")) {
+          if (datos.get(lol[0]).equals("Trampa")) {
                System.out.printf("%-20s %20s %20s %n", lol[0],datos.get(lol[0]), lol[1]);
           }
         }

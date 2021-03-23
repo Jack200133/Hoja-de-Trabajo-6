@@ -21,7 +21,7 @@ class LinkedHash implements Map {
 
   @Override
   public boolean containsKey(Object key) {
-      return linkeado.containsValue(key);
+      return linkeado.containsKey(key);
   }
 
   @Override
@@ -31,6 +31,7 @@ class LinkedHash implements Map {
 
   @Override
   public Object get(Object key) {
+    
       return linkeado.get(key);
   }
 
